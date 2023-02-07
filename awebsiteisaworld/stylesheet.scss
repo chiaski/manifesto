@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'Director';
+  src: url('Director-Regular.woff2') format('woff2'),
+    url('Director-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body, main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin:0; padding: 0;
+  font-family: 'Director';
+  background-size: cover;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+h1{
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+#extra{
+  position: absolute;
+  bottom: 0;
+}
+
+
+main{
+  
+  margin-top: 300px;
+  
+  #websiteisa{
+    font-size: 1.5rem;
+    padding: 1em;
+  }
+  
+  #wrapper{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .m{
+    display: inline-block;
+    max-width: 300px;
+    padding: 1em;
+    
+    summary{
+      cursor: pointer;
+      padding: .5em;
+    }
+    
+    p{
+      font-size: .75rem;
+      line-height: 130%;
+      font-family: "Helvetica";
+    }
+    
+  }
+  
+}
+
+
+#clouds {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  overflow: hidden;
+  letter-spacing: 5px;
+  pointer-events: none;
+  opacity: 0.6;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  transition: opacity 5s linear;
+  z-index: -2;
+      font-family: "Helvetica";
+
+  .cloud-wrapper {
+
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    min-width: 300vw;
+    height: 350px;
+    transition: opacity 5s linear;
+    animation: marquee 400s linear infinite;
+
+    @media only screen and (max-width: 600px) {
+      animation: marquee 300s infinite;
+    }
+  }
+
+  .cloud {
+    margin: 1em;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    //    gap: var(--gap);
+
+    span {
+      white-space: pre-wrap;
+      word-break: break-word;
+      display: inline-block;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+}
+
+#clouds.two {
+
+  opacity: 0.6;
+  top: 250px;
+
+  .cloud-wrapper {
+    animation: marquee 310s infinite;
+
+    @media only screen and (max-width: 600px) {
+      animation: marquee 260s infinite;
+    }
+
+  }
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  2% {
+    opacity: 0.8;
+  }
+
+  30% {
+    opacity: 0.95;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  95% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-4500px);
+  }
+}
