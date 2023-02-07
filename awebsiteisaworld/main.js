@@ -22,14 +22,14 @@ $( document ).ready(function() {
   // handle flowers
     $("#flowers a").each(function(i, obj){
   
-      let _left = randInt(0, 9000);
+      let _left = randInt(0, 11000);
       let _top = randInt(0, 100);
       let _opacity = randInt(50, 100) * 0.01;
       
       $(obj)
       .css("opacity", _opacity)
       .css("left", _left + "px")
-      .css("top", _top + "px");
+      .css("bottom", _top + "px");
       
     });
   
@@ -56,6 +56,7 @@ function changeViewmode(what){
     .removeClass("list")
     .addClass("box");
     
+    $("#flowers").show();
     $(".fake").show();
     
   }
@@ -64,6 +65,8 @@ function changeViewmode(what){
     $("#wrapper")
     .removeClass("box")
     .addClass("list");
+    
+    $("#flowers").hide();
     
     $(".fake").hide();
     
@@ -88,8 +91,18 @@ function changeViewmode(what){
   
 }
 
-$("#wrapper .m").click(function(){
+
+$("a[name='howto']").click(function(){
   
+  $("#howto").css("display", "flex").fadeIn();
+  
+  $("#howto").click(function(){
+    $(this).fadeOut();
+  })
+  
+})
+
+$("#wrapper .m").click(function(){
   
   
   if(viewmode == "popup"){

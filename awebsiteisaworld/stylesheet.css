@@ -17,6 +17,7 @@ body, main {
   background-size: cover;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 header {
@@ -33,11 +34,12 @@ header a {
   color: #000;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 #header {
   position: fixed;
-  top: 90px;
+  top: 60px;
 }
 #header h1 {
   text-transform: uppercase;
@@ -46,6 +48,29 @@ header a {
   #header h1 {
     font-size: 0.8rem;
   }
+}
+
+#howto {
+  z-index: 9999;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: none;
+}
+#howto p {
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 400px;
+  padding: 1em;
+  text-align: center;
 }
 
 h1 {
@@ -75,7 +100,7 @@ h1 {
 
 main {
   width: 100vw;
-  margin-top: 50px;
+  margin-top: 100px;
   height: calc(100vh - 100px);
   overflow: hidden;
 }
@@ -87,11 +112,12 @@ main {
 main #websiteisa {
   padding: 1em;
   position: fixed;
-  top: 100px;
+  top: 90px;
   text-align: center;
 }
 main #websiteisa h1 {
   font-size: 1.5rem;
+  margin: 0.25rem;
 }
 @media only screen and (max-width: 600px) {
   main #websiteisa h1 {
@@ -119,6 +145,7 @@ main #wrapper.box {
 main #wrapper.box .extra-wrapper {
   position: fixed;
   width: 12500px;
+  top: 220px;
   display: flex;
   flex-direction: row;
 }
@@ -175,6 +202,9 @@ main .m p {
   font-family: "Helvetica";
   text-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 15px #fff;
 }
+main .m .prompt {
+  color: rgba(0, 0, 0, 0.5);
+}
 main .m a.example {
   font-size: 1.5rem;
   text-decoration: none;
@@ -213,7 +243,7 @@ main #wrapper.list .m {
 
 #flowers {
   position: absolute;
-  bottom: 200px;
+  bottom: 50px;
   width: 100vw;
   padding: 1em;
 }
@@ -284,8 +314,9 @@ main #wrapper.list .m {
 }
 
 #clouds.two {
-  opacity: 0.6;
-  top: 220px;
+  opacity: 0.3;
+  top: 180px;
+  font-size: 1rem;
 }
 #clouds.two .cloud-wrapper {
   animation: marquee 310s infinite;
