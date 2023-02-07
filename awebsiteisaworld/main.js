@@ -37,6 +37,8 @@ $( document ).ready(function() {
 
 
 $("#websiteisa a").click(function(){
+  
+  if( $(this).attr("href") !== undefined && $(this).attr("href") !== false ) return;
 
   $("#websiteisa a").removeAttr("active");
   let v = $(this).attr("type");
