@@ -6,19 +6,32 @@ $("#wrapper .m").hover(function(){
   
   let v = $(this).attr("isa");
   
-  console.log(v);
-  
+
   $(".isa").html(v.toUpperCase());
+  document.title = "A WEBSITE " + v.toUpperCase();
   
 });
 
 
-var viewmode = "list";
+var viewmode = "box";
 
 $( document ).ready(function() {
    viewmode = $("#websiteisa a[active]").attr("type");
   changeViewmode(viewmode);
 
+  // handle flowers
+    $("#flowers a").each(function(i, obj){
+  
+      let _left = randInt(0, 9000);
+      let _top = randInt(0, 100);
+      let _opacity = randInt(50, 100) * 0.01;
+      
+      $(obj)
+      .css("opacity", _opacity)
+      .css("left", _left + "px")
+      .css("top", _top + "px");
+      
+    });
   
 });
 
@@ -28,7 +41,6 @@ $("#websiteisa a").click(function(){
   $("#websiteisa a").removeAttr("active");
   let v = $(this).attr("type");
   $(this).attr("active", "")
-  console.log( v );
   
   viewmode = v;
   
@@ -50,13 +62,14 @@ function changeViewmode(what){
   
   if( what == "list" ){
     $("#wrapper")
-      .css("width", "9000px");
+    .removeClass("box")
+    .addClass("list");
     
+    $(".fake").hide();
     
   }
   
   if( what == "popup" ){
-    $("#wrapper .m p").css("display", "none");
     
     $("#wrapper .m").each(function(i, obj){
       
@@ -88,7 +101,6 @@ $("#wrapper .m").click(function(){
       let _top = randInt(0, screen.availHeight - 150);
       let _left = randInt(0, screen.availWidth - 300);
       
-      console.log( obj );
       
       window.open( $(obj).attr("href"), "", "top="+_top+",left=" + _left + ",width=500, height=250, location=no,toolbar=no,menubar=no,popup" )
     });
@@ -104,5 +116,17 @@ $(window).on('scroll', function() {
   if(viewmode == "list") return;
   
   $(".extra-wrapper").css("left", -$(window).scrollTop());
+  $("#flowers .wrapper").css("left", -$(window).scrollTop());
+  
+  let d = document.getElementsByClassName("fake")[0];
+//  
+        if ( viewmode == "box" && $(document).scrollTop() >= (Math.floor(d.scrollHeight)) - 950) $(document).scrollTop({
+          top: 0,
+          behavior: 'smooth'
+        });
+
+  
+  
+  
 });
 

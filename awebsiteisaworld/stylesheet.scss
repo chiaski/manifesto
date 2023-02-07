@@ -22,12 +22,28 @@ body, main {
 }
 
 
+header{
+  position: fixed;
+  z-index: 99999;
+  top: 0;left:0;
+  padding: .5em;
+  width: calc(100% - 1em);
+  display: flex;
+  justify-content: space-between;
+  
+  a{color:#000;text-decoration: none; text-transform: uppercase;}
+  
+}
+
 #header{
   position: fixed;
   top: 90px;
 
   h1{
   text-transform: uppercase;
+  @media only screen and (max-width: 600px) {
+    font-size: .8rem;
+    }
   }
   
 }
@@ -49,21 +65,25 @@ h1{
   .fake{
     position: absolute;
     top: 0;
-    height: 9000px;
+    height: 12300px;
     z-index: -10;
     width: 100%;
     pointer-events: none;
+    
+  @media only screen and (max-width: 600px) {
+    height: 12100px;
+    }
   }
 
 main{
   
   width: 100vw;
-  margin-top: 80px;
-  height: 100vh;
+  margin-top: 50px;
+  height: calc(100vh - 100px);
   overflow: hidden;
   
   @media only screen and (max-width: 600px) {
-  margin-top: 300px;
+  margin-top: 60px;
   }
   
   #websiteisa{
@@ -74,15 +94,19 @@ main{
     
     h1{
     font-size: 1.5rem;
+  @media only screen and (max-width: 600px) {
+      font-size: 1.25rem;
+      }
     }
     
     a{
       cursor: pointer;
-      font-size: .8rem;
+      font-size: .6rem;
+      opacity: 0.4;
     }
     
     a[active]{
-      text-decoration: underline;
+opacity: 1;
     }
     
   }
@@ -103,28 +127,44 @@ main{
     
     .extra-wrapper{
     position: fixed;
-    width: 9000px;
+    width: 12500px;
       display: flex;
       flex-direction: row;
+      
+  @media only screen and (max-width: 600px) {
+      width: 10000px;
+      }
     }
     
     .m{
-width: 250px;
+      box-sizing: border-box;
+      min-width: 300px;
     padding: 1em;
     margin: 0 2em;
     max-height: 380px;
     overflow-y: scroll;
+  @media only screen and (max-width: 600px) {
+      min-width: 310px;
+    width: 310px;
+    max-width: 90vw;
+      }
+    }
+    
+    .m:last-of-type{
+      margin-right: 15vw;
+      
+  @media only screen and (max-width: 600px) {
+      margin-right: 0;
+      }
     }
   }
   
 
   .m{
     display: inline-block;
-width: 250px;
     padding: 1em;
     margin: 0 2em;
     max-height: 380px;
-    overflow-y: scroll;
     margin: 0 auto;
     padding: 1em;
     box-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 35px #fff,  0 0 35px #fff;
@@ -179,13 +219,48 @@ width: 250px;
     }
     
     .m{
-      width: 80vw;
-      height: auto;
-      max-height: none;
-      margin: 0;
-      padding: 0;
-      overflow:none;
       display: block;
+      width: 80vw;
+      max-width: 520px;
+      min-height: 200px;
+      height: fit-content;
+      max-height: none;
+      margin: 1em auto;
+      padding: 1em;
+      overflow:none;
+    }
+    
+  }
+  
+}
+
+
+#flowers{
+  
+  position: absolute;
+bottom: 200px;
+  width: 100vw;
+  padding: 1em;
+  
+  .wrapper{
+    position: fixed;
+    width: 9000px;
+    height: 50px;
+    
+    a{
+      position: absolute;
+      text-decoration: none;
+      color:#000;
+      opacity: 0.4;
+      font-size: 1.1rem;
+      z-index: 9;
+    }
+    
+    a:hover{
+      opacity: 1;
+      transform: rotate(270deg);
+      transform-origin: center center;
+      text-shadow: 0 0 15px #000;
     }
     
   }
@@ -241,6 +316,7 @@ width: 250px;
     font-size: 1rem;
   }
 }
+
 
 #clouds.two {
 

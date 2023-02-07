@@ -19,12 +19,33 @@ body, main {
   -webkit-font-smoothing: antialiased;
 }
 
+header {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  padding: 0.5em;
+  width: calc(100% - 1em);
+  display: flex;
+  justify-content: space-between;
+}
+header a {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 #header {
   position: fixed;
   top: 90px;
 }
 #header h1 {
   text-transform: uppercase;
+}
+@media only screen and (max-width: 600px) {
+  #header h1 {
+    font-size: 0.8rem;
+  }
 }
 
 h1 {
@@ -41,21 +62,26 @@ h1 {
 .fake {
   position: absolute;
   top: 0;
-  height: 9000px;
+  height: 12300px;
   z-index: -10;
   width: 100%;
   pointer-events: none;
 }
+@media only screen and (max-width: 600px) {
+  .fake {
+    height: 12100px;
+  }
+}
 
 main {
   width: 100vw;
-  margin-top: 80px;
-  height: 100vh;
+  margin-top: 50px;
+  height: calc(100vh - 100px);
   overflow: hidden;
 }
 @media only screen and (max-width: 600px) {
   main {
-    margin-top: 300px;
+    margin-top: 60px;
   }
 }
 main #websiteisa {
@@ -67,12 +93,18 @@ main #websiteisa {
 main #websiteisa h1 {
   font-size: 1.5rem;
 }
+@media only screen and (max-width: 600px) {
+  main #websiteisa h1 {
+    font-size: 1.25rem;
+  }
+}
 main #websiteisa a {
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
+  opacity: 0.4;
 }
 main #websiteisa a[active] {
-  text-decoration: underline;
+  opacity: 1;
 }
 main #wrapper {
   display: flex;
@@ -86,24 +118,43 @@ main #wrapper.box {
 }
 main #wrapper.box .extra-wrapper {
   position: fixed;
-  width: 9000px;
+  width: 12500px;
   display: flex;
   flex-direction: row;
 }
+@media only screen and (max-width: 600px) {
+  main #wrapper.box .extra-wrapper {
+    width: 10000px;
+  }
+}
 main #wrapper.box .m {
-  width: 250px;
+  box-sizing: border-box;
+  min-width: 300px;
   padding: 1em;
   margin: 0 2em;
   max-height: 380px;
   overflow-y: scroll;
 }
+@media only screen and (max-width: 600px) {
+  main #wrapper.box .m {
+    min-width: 310px;
+    width: 310px;
+    max-width: 90vw;
+  }
+}
+main #wrapper.box .m:last-of-type {
+  margin-right: 15vw;
+}
+@media only screen and (max-width: 600px) {
+  main #wrapper.box .m:last-of-type {
+    margin-right: 0;
+  }
+}
 main .m {
   display: inline-block;
-  width: 250px;
   padding: 1em;
   margin: 0 2em;
   max-height: 380px;
-  overflow-y: scroll;
   margin: 0 auto;
   padding: 1em;
   box-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 35px #fff, 0 0 35px #fff;
@@ -149,13 +200,41 @@ main #wrapper.list .extra-wrapper {
   height: 3000px;
 }
 main #wrapper.list .m {
-  width: 80vw;
-  height: auto;
-  max-height: none;
-  margin: 0;
-  padding: 0;
-  overflow: none;
   display: block;
+  width: 80vw;
+  max-width: 520px;
+  min-height: 200px;
+  height: fit-content;
+  max-height: none;
+  margin: 1em auto;
+  padding: 1em;
+  overflow: none;
+}
+
+#flowers {
+  position: absolute;
+  bottom: 200px;
+  width: 100vw;
+  padding: 1em;
+}
+#flowers .wrapper {
+  position: fixed;
+  width: 9000px;
+  height: 50px;
+}
+#flowers .wrapper a {
+  position: absolute;
+  text-decoration: none;
+  color: #000;
+  opacity: 0.4;
+  font-size: 1.1rem;
+  z-index: 9;
+}
+#flowers .wrapper a:hover {
+  opacity: 1;
+  transform: rotate(270deg);
+  transform-origin: center center;
+  text-shadow: 0 0 15px #000;
 }
 
 #clouds {
