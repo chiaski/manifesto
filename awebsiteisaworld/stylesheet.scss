@@ -19,9 +19,18 @@ body, main {
   background-size: cover;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
+
+#header{
+  position: fixed;
+  top: 110px;
+
+  h1{
+  text-transform: uppercase;
+  }
+  
+}
 
 
 
@@ -36,36 +45,103 @@ h1{
 }
 
 
+  .fake{
+    position: absolute;
+    top: 0;
+    height: 9000px;
+    z-index: -10;
+    width: 100%;
+    pointer-events: none;
+  }
+
 main{
   
+  width: 100vw;
+  overflow-x: hidden;
+  margin-top: 100px;
+  
+  height: 100vh;
+  @media only screen and (max-width: 600px) {
   margin-top: 300px;
+  }
   
   #websiteisa{
-    font-size: 1.5rem;
     padding: 1em;
+    position: fixed;
+    top: 120px;
+    text-align: center;
+    
+    h1{
+    font-size: 1.5rem;
+    }
+    
+    a{
+      cursor: pointer;
+      font-size: .8rem;
+    }
+    
+    a[active]{
+      text-decoration: underline;
+    }
+    
   }
   
   #wrapper{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+//    justify-content: flex-end;
+//    align-content: flex-start;
+//    align-items: flex-start;
   }
+  
+  #wrapper.box{
+    position: fixed;
+    width: 9000px;
+    height: 400px;
+    left: 0;
+  }
+//  
   
   .m{
     display: inline-block;
-    max-width: 300px;
+width: 250px;
     padding: 1em;
+    margin: 0 2em;
+    max-height: 320px;
+    overflow-y: scroll;
+    margin: 0 auto;
+    padding: 1em;
+    box-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 35px #fff,  0 0 35px #fff;
+    border-radius: 30px;
+    -webkit-backdrop-filter:blur(2px);
+    backdrop-filter:blur(2px);
+    background:rgba(255, 255, 255, 0.1);
     
     summary{
       cursor: pointer;
       padding: .5em;
+      text-align: center;
     }
     
     p{
+      color:#393939;
       font-size: .75rem;
       line-height: 130%;
       font-family: "Helvetica";
+    text-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 15px #fff;
     }
     
+    a.example{
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+    
+  }
+  
+  .m:hover{
+    background:rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter:blur(2px);
+    box-shadow: 0 0 15px #e3e3e3, 0 0 35px rgba(201, 201, 201, 0.69);
   }
   
 }
@@ -78,7 +154,7 @@ main{
   overflow: hidden;
   letter-spacing: 5px;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.4;
   font-size: 1.25rem;
   letter-spacing: 2px;
   transition: opacity 5s linear;
@@ -97,6 +173,7 @@ main{
 
     @media only screen and (max-width: 600px) {
       animation: marquee 300s infinite;
+      opacity: 0.2;
     }
   }
 
@@ -115,14 +192,14 @@ main{
   }
 
   @media only screen and (max-width: 600px) {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }
 
 #clouds.two {
 
   opacity: 0.6;
-  top: 250px;
+  top: 220px;
 
   .cloud-wrapper {
     animation: marquee 310s infinite;
@@ -131,6 +208,9 @@ main{
       animation: marquee 260s infinite;
     }
 
+  }
+    @media only screen and (max-width: 600px) {
+  opacity: 0.1;
   }
 }
 
