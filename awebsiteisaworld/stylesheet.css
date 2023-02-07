@@ -87,14 +87,14 @@ h1 {
 .fake {
   position: absolute;
   top: 0;
-  height: 12300px;
+  height: 13000px;
   z-index: -10;
   width: 100%;
   pointer-events: none;
 }
 @media only screen and (max-width: 600px) {
   .fake {
-    height: 12100px;
+    height: 12400px;
   }
 }
 
@@ -144,14 +144,16 @@ main #wrapper.box {
 }
 main #wrapper.box .extra-wrapper {
   position: fixed;
-  width: 12500px;
+  width: 13000px;
   top: 220px;
+  height: 60vh;
   display: flex;
+  align-items: center;
   flex-direction: row;
 }
 @media only screen and (max-width: 600px) {
   main #wrapper.box .extra-wrapper {
-    width: 10000px;
+    width: 10300px;
   }
 }
 main #wrapper.box .m {
@@ -159,6 +161,7 @@ main #wrapper.box .m {
   min-width: 300px;
   padding: 1em;
   margin: 0 2em;
+  height: 380px;
   max-height: 380px;
   overflow-y: scroll;
 }
@@ -167,6 +170,20 @@ main #wrapper.box .m {
     min-width: 310px;
     width: 310px;
     max-width: 90vw;
+  }
+}
+@media only screen and (max-height: 720px) {
+  main #wrapper.box .m {
+    height: 280px;
+    max-height: 280px;
+  }
+}
+main #wrapper.box .m:first-of-type {
+  margin-left: 20vw;
+}
+@media only screen and (max-width: 600px) {
+  main #wrapper.box .m:first-of-type {
+    margin-left: 10vw;
   }
 }
 main #wrapper.box .m:last-of-type {
@@ -181,8 +198,8 @@ main .m {
   display: inline-block;
   padding: 1em;
   margin: 0 2em;
-  max-height: 380px;
   margin: 0 auto;
+  max-width: 350px;
   padding: 1em;
   box-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 35px #fff, 0 0 35px #fff;
   border-radius: 30px;
@@ -197,7 +214,7 @@ main .m summary {
 }
 main .m p {
   color: #393939;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   line-height: 130%;
   font-family: "Helvetica";
   text-shadow: 0 0 15px #fff, 0 0 15px #fff, 0 0 15px #fff;
