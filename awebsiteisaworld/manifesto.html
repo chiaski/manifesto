@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Content-Type" 
+      content="text/html; charset=utf-8">
+  <title> </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style type="text/css">
+  
+    @font-face {
+  font-family: 'Director';
+  src: url('Director-Regular.woff2') format('woff2'),
+    url('Director-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+    
+    body{
+
+      
+  font-family: 'Director';
+  background-size: cover;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+      
+      font-size: .8rem;
+      letter-spacing: -.5px;
+padding: 1em;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+
+  <main>
+
+    <div id="words"><h3></h3>
+    <p style="color:#000;"></p>
+    </div>
+    
+  </main>
+
+  <script src="jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    
+    function decodeHtmlCharCodes(str) { 
+  return str.replace(/(&#(\d+);)/g, function(match, capture, charCode) {
+    return String.fromCharCode(charCode);
+  });
+}
+
+    
+    $(document).ready(function(){
+   
+      let NOW, r;
+      function parseURL() {
+        let decode = $(location).attr("href").split("=")[1];
+        NOW = decode;
+        if (NOW.indexOf("%20") >= 0) NOW = NOW.replace(/%20/g, " ");
+        NOW = NOW.replace(/%E2%80%94/g, "——");
+        NOW = NOW.replace(/%27/g, "'");
+
+        return NOW;
+        }
+      
+      if (window.location.href.indexOf("?=") > -1) {
+        r = parseURL();
+      }
+      
+      
+      let text = decodeURI(r);
+      
+//      document.title = r.split(".")[0] + ".";
+      document.title = r.split(".")[0] + ".";
+     $("p").html( decodeURI(r.substring(r.indexOf(".") + 2)) );
+      
+    })
+    
+    
+  </script>
+</body>
+
+</html>

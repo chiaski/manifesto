@@ -13,7 +13,15 @@ $("#wrapper .m").hover(function(){
 });
 
 
-var viewmode = "box";
+var viewmode = "list";
+
+$( document ).ready(function() {
+   viewmode = $("#websiteisa a[active]").attr("type");
+  changeViewmode(viewmode);
+
+  
+});
+
 
 $("#websiteisa a").click(function(){
 
@@ -24,20 +32,48 @@ $("#websiteisa a").click(function(){
   
   viewmode = v;
   
-  
-  if( viewmode == "list" ){
-    
-    
-    
-  }
-  
-  if( viewmode == "popup" ){
-    
-    $("#wrapper .m p").css("display", "none")
-    
-  }
+  changeViewmode(viewmode);
   
 });
+
+
+function changeViewmode(what){
+  
+  if( what == "box" ){
+    $("#wrapper")
+    .removeClass("list")
+    .addClass("box");
+    
+    $(".fake").show();
+    
+  }
+  
+  if( what == "list" ){
+    $("#wrapper")
+      .css("width", "9000px");
+    
+    
+  }
+  
+  if( what == "popup" ){
+    $("#wrapper .m p").css("display", "none");
+    
+    $("#wrapper .m").each(function(i, obj){
+      
+      let _t =  $(obj).find("summary").text() + " " + $(obj).find("p:first-of-type").text();
+      let _top = randInt(0, screen.availHeight - 300);
+      let _left = randInt(0, screen.availWidth - 400);
+      
+     window.open("manifesto.html?=" + _t, "", "top="+_top+",left=" + _left + ",width=400, height=300, location=no,toolbar=no,menubar=no,popup" );
+    
+      
+      
+    })
+    
+  }
+  
+  
+}
 
 $("#wrapper .m").click(function(){
   
@@ -65,8 +101,8 @@ $("#wrapper .m").click(function(){
 
 $(window).on('scroll', function() {
   
-  if(viewmode !== "box") return;
+  if(viewmode == "list") return;
   
-  $("#wrapper.box").css("left", -$(window).scrollTop());
+  $(".extra-wrapper").css("left", -$(window).scrollTop());
 });
 

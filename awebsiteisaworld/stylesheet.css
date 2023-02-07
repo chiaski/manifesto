@@ -21,7 +21,7 @@ body, main {
 
 #header {
   position: fixed;
-  top: 110px;
+  top: 90px;
 }
 #header h1 {
   text-transform: uppercase;
@@ -35,6 +35,7 @@ h1 {
 #extra {
   position: absolute;
   bottom: 0;
+  display: none;
 }
 
 .fake {
@@ -48,9 +49,9 @@ h1 {
 
 main {
   width: 100vw;
-  overflow-x: hidden;
-  margin-top: 100px;
+  margin-top: 80px;
   height: 100vh;
+  overflow: hidden;
 }
 @media only screen and (max-width: 600px) {
   main {
@@ -60,7 +61,7 @@ main {
 main #websiteisa {
   padding: 1em;
   position: fixed;
-  top: 120px;
+  top: 100px;
   text-align: center;
 }
 main #websiteisa h1 {
@@ -76,19 +77,32 @@ main #websiteisa a[active] {
 main #wrapper {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 main #wrapper.box {
+  height: 400px;
+  width: 100vw;
+  left: 0;
+}
+main #wrapper.box .extra-wrapper {
   position: fixed;
   width: 9000px;
-  height: 400px;
-  left: 0;
+  display: flex;
+  flex-direction: row;
+}
+main #wrapper.box .m {
+  width: 250px;
+  padding: 1em;
+  margin: 0 2em;
+  max-height: 380px;
+  overflow-y: scroll;
 }
 main .m {
   display: inline-block;
   width: 250px;
   padding: 1em;
   margin: 0 2em;
-  max-height: 320px;
+  max-height: 380px;
   overflow-y: scroll;
   margin: 0 auto;
   padding: 1em;
@@ -118,6 +132,30 @@ main .m:hover {
   background: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(2px);
   box-shadow: 0 0 15px #e3e3e3, 0 0 35px rgba(201, 201, 201, 0.69);
+}
+main #wrapper.list {
+  position: fixed;
+  width: 100vw;
+  height: 500px;
+  overflow-y: scroll;
+  left: 0;
+  width: 100vw;
+}
+main #wrapper.list .extra-wrapper {
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 3000px;
+}
+main #wrapper.list .m {
+  width: 80vw;
+  height: auto;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: none;
+  display: block;
 }
 
 #clouds {
